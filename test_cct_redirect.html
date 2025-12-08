@@ -18,6 +18,16 @@
             margin-top: 20px;
             color: #d9534f;
         }
+        .btn {
+            display: inline-block;
+            padding: 14px 22px;
+            background: #4285F4;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
     </style>
 
     <script>
@@ -27,12 +37,7 @@
             const timer = document.getElementById("timer");
             timer.innerText = "Повернення через " + seconds + " секунд...";
 
-            // 1️⃣ Через 1 секунду автоматично переходимо на Google Pay demo
-            setTimeout(() => {
-                window.location.href = "https://developers.google.com/pay/api/web/guides/resources/demos";
-            }, 1000);
-
-            // 2️⃣ Продовжуємо працювати таймер → через 15 сек повертаємо в апп
+            // 15-секундний таймер для повернення в додаток
             const interval = setInterval(() => {
                 seconds--;
                 timer.innerText = "Повернення через " + seconds + " секунд...";
@@ -54,11 +59,14 @@
     <h1>Chrome Custom Tabs Redirect Test</h1>
 
     <p>
-        Зараз відкриється сторінка Google Pay Demo.
-        <br><br>
-        Через 15 секунд Chrome Custom Tab автоматично поверне вас у додаток
-        через <strong>DeepLink</strong>.
+        Натисніть кнопку нижче, щоби відкрити Google Pay Demo.<br><br>
+        Через 15 секунд Custom Tab автоматично поверне вас у додаток.
     </p>
+
+    <!-- 🔵 Кнопка, по якій користувач ПОВИНЕН натиснути -->
+    <a class="btn" href="https://developers.google.com/pay/api/web/guides/resources/demos">
+        Відкрити Google Pay Demo
+    </a>
 
     <div id="timer">Повернення через 15 секунд...</div>
 </body>
