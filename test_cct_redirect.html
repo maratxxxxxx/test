@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Chrome Custom Tabs Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            color: #2b2b2b;
+        }
+        #timer {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #d9534f;
+        }
+    </style>
+
+    <script>
+        let seconds = 15;
+
+        function startCountdown() {
+            const timer = document.getElementById("timer");
+            timer.innerText = "Redirect in " + seconds + " seconds...";
+
+            const interval = setInterval(() => {
+                seconds--;
+                timer.innerText = "Redirect in " + seconds + " seconds...";
+
+                if (seconds <= 0) {
+                    clearInterval(interval);
+
+                    // 🔥 DEEP LINK REDIRECT
+                    window.location.href = "sportlife://payment/success?uid=test-deeplink-123";
+                }
+            }, 1000);
+        }
+
+        window.onload = startCountdown;
+    </script>
+</head>
+
+<body>
+    <h1>Chrome Custom Tabs Redirect Test</h1>
+
+    <p>
+        Ця сторінка використовується для тестування повернення у додаток через DeepLink.
+        <br><br>
+        Якщо все працює правильно — через 15 секунд Custom Tab автоматично закриється,
+        і ви повернетесь у <strong>PaymentActivity</strong>.
+    </p>
+
+    <div id="timer"></div>
+</body>
+</html>
