@@ -25,11 +25,17 @@
 
         function startCountdown() {
             const timer = document.getElementById("timer");
-            timer.innerText = "Redirect in " + seconds + " seconds...";
+            timer.innerText = "Повернення через " + seconds + " секунд...";
 
+            // 1️⃣ Через 1 секунду автоматично переходимо на Google Pay demo
+            setTimeout(() => {
+                window.location.href = "https://developers.google.com/pay/api/web/guides/resources/demos";
+            }, 1000);
+
+            // 2️⃣ Продовжуємо працювати таймер → через 15 сек повертаємо в апп
             const interval = setInterval(() => {
                 seconds--;
-                timer.innerText = "Redirect in " + seconds + " seconds...";
+                timer.innerText = "Повернення через " + seconds + " секунд...";
 
                 if (seconds <= 0) {
                     clearInterval(interval);
@@ -48,12 +54,12 @@
     <h1>Chrome Custom Tabs Redirect Test</h1>
 
     <p>
-        Ця сторінка використовується для тестування повернення у додаток через DeepLink.
+        Зараз відкриється сторінка Google Pay Demo.
         <br><br>
-        Якщо все працює правильно — через 15 секунд Custom Tab автоматично закриється,
-        і ви повернетесь у <strong>PaymentActivity</strong>.
+        Через 15 секунд Chrome Custom Tab автоматично поверне вас у додаток
+        через <strong>DeepLink</strong>.
     </p>
 
-    <div id="timer"></div>
+    <div id="timer">Повернення через 15 секунд...</div>
 </body>
 </html>
