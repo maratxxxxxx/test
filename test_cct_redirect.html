@@ -1,73 +1,17 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Chrome Custom Tabs Test</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 40px;
-            text-align: center;
-        }
-        h1 {
-            color: #2b2b2b;
-        }
-        #timer {
-            font-size: 24px;
-            margin-top: 20px;
-            color: #d9534f;
-        }
-        .btn {
-            display: inline-block;
-            padding: 14px 22px;
-            background: #4285F4;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
-
+    <title>Test Payment</title>
     <script>
-        let seconds = 15;
-
-        function startCountdown() {
-            const timer = document.getElementById("timer");
-            timer.innerText = "Повернення через " + seconds + " секунд...";
-
-            const interval = setInterval(() => {
-                seconds--;
-                timer.innerText = "Повернення через " + seconds + " секунд...";
-
-                if (seconds <= 0) {
-                    clearInterval(interval);
-
-                    // 🔥 Редірект у твій апп-лінк
-                    window.location.href = "https://customer.sportlife.ua/payment/success?uid=123";
-                }
-            }, 1000);
-        }
-
-        window.onload = startCountdown;
+        // Автоматичний redirect через 15 секунд
+        setTimeout(function() {
+            window.location.href = "sportlife://payment/success?uid=test-123";
+        }, 15000);
     </script>
 </head>
-
 <body>
-    <h1>Chrome Custom Tabs Redirect Test</h1>
-
-    <p>
-        Через 15 секунд ця вкладка спробує перейти на<br>
-        <code>https://customer.sportlife.ua/payment/success?uid=123</code><br>
-        щоб повернути вас у додаток.
-    </p>
-
-    <!-- Ручний fallback, якщо авто-редірект раптом не спрацює -->
-    <a class="btn" href="https://customer.sportlife.ua/payment/success?uid=123">
-        Повернутись у додаток
-    </a>
-
-    <div id="timer">Повернення через 15 секунд...</div>
+    <h1>Chrome Custom Tabs TEST</h1>
+    <p>Через 15 секунд вас має автоматично повернути в додаток.</p>
 </body>
 </html>
