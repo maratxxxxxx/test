@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Повернення у застосунок…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 24px;
+            text-align: center;
+        }
+        .loader {
+            margin-top: 40px;
+            font-size: 18px;
+            opacity: 0.7;
+        }
+    </style>
+
+    <script>
+        // Затримка перед редиректом (мс)
+        const REDIRECT_DELAY = 2000;
+
+        // Твій App Link success URL:
+        const successUrl = "https://test-tau-lilac.vercel.app/payment/success";
+
+        // Редирект назад у застосунок
+        setTimeout(() => {
+            window.location.href = successUrl;
+        }, REDIRECT_DELAY);
+    </script>
+</head>
+
+<body>
+    <h1>Зачекайте…</h1>
+    <p>Оплата успішна. Вас повертає у застосунок.</p>
+
+    <div class="loader">Виконуємо редирект…</div>
+</body>
+</html>
