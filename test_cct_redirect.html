@@ -1,17 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>Test Payment</title>
+    <meta charset="UTF-8" />
+    <title>Повернення у застосунок…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 24px;
+            text-align: center;
+        }
+        .loader {
+            margin-top: 40px;
+            font-size: 18px;
+            opacity: 0.7;
+        }
+    </style>
+
     <script>
-        // Автоматичний redirect через 15 секунд
-        setTimeout(function() {
-            window.location.href = "sportlife://payment/success?uid=test-123";
-        }, 15000);
+        // Затримка перед редиректом (мс)
+        const REDIRECT_DELAY = 2000;
+
+        // Твій App Link success URL:
+        const successUrl = "https://test-tau-lilac.vercel.app/payment/success?paymentId=123";
+
+        // Редирект назад у застосунок
+        setTimeout(() => {
+            window.location.href = successUrl;
+        }, REDIRECT_DELAY);
     </script>
 </head>
+
 <body>
-    <h1>Chrome Custom Tabs TEST</h1>
-    <p>Через 15 секунд вас має автоматично повернути в додаток.</p>
+    <h1>Зачекайте…</h1>
+    <p>Оплата успішна. Вас повертає у застосунок.</p>
+
+    <div class="loader">Виконуємо редирект…</div>
 </body>
 </html>
