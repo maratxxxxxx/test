@@ -23,7 +23,43 @@
         const REDIRECT_DELAY = 2000;
 
         // Твій App Link success URL:
-        const successUrl = "https://test-tau-lilac.vercel.app/payment/success";
+        const successUrl = "<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Оплата успішна</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 24px;
+            text-align: center;
+        }
+        .btn {
+            margin-top: 32px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Оплата пройшла успішно ✅</h1>
+    <p>Щоб повернутись у застосунок, натисніть кнопку нижче.</p>
+
+    <!-- Варіант через кнопку -->
+    <button
+        class="btn"
+        onclick="window.location.href='sportlife://payment/success?paymentId=123&status=success'">
+        Повернутись у застосунок
+    </button>
+</body>
+</html>
+";
 
         // Редирект назад у застосунок
         setTimeout(() => {
