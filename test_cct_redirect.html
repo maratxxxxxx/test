@@ -37,7 +37,6 @@
             const timer = document.getElementById("timer");
             timer.innerText = "Повернення через " + seconds + " секунд...";
 
-            // 15-секундний таймер для повернення в додаток
             const interval = setInterval(() => {
                 seconds--;
                 timer.innerText = "Повернення через " + seconds + " секунд...";
@@ -45,13 +44,8 @@
                 if (seconds <= 0) {
                     clearInterval(interval);
 
-                    // 🔥 DEEP LINK REDIRECT
-                    // тут підставляєш те, з чим саме зараз тестуєш:
-                    // 1) або кастом-схему:
-                    // window.location.href = "sportlife://payment/success?uid=123";
-                    // 2) або intent-схему:
-                    window.location.href =
-                        "intent://payment/success?uid=123#Intent;scheme=sportlife;package=ua.sportlife.customer;end;";
+                    // 🔥 Редірект у твій апп-лінк
+                    window.location.href = "https://customer.sportlife.ua/payment/success?uid=123";
                 }
             }, 1000);
         }
@@ -64,8 +58,15 @@
     <h1>Chrome Custom Tabs Redirect Test</h1>
 
     <p>
-        Через 15 секунд ця вкладка спробує повернути вас у додаток через deep link.
+        Через 15 секунд ця вкладка спробує перейти на<br>
+        <code>https://customer.sportlife.ua/payment/success?uid=123</code><br>
+        щоб повернути вас у додаток.
     </p>
+
+    <!-- Ручний fallback, якщо авто-редірект раптом не спрацює -->
+    <a class="btn" href="https://customer.sportlife.ua/payment/success?uid=123">
+        Повернутись у додаток
+    </a>
 
     <div id="timer">Повернення через 15 секунд...</div>
 </body>
